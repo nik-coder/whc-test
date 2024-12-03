@@ -14,8 +14,8 @@ Both of them are in the root folder and they have same functionality to add, sub
 
 Commands are defined and usage is in the commands.php file.
 
-An example to run add command is: add 1 2 3 4 5
-An example to run subtract command is: subtract 10 5 3 2 1
-An example to run sort ascending command is: sort-asc 10 5 3 2 1
-An example to run get github repo description command is: repo-desc owner repository
+An example to run add command is: add 1 2 3 4 5\
+An example to run subtract command is: subtract 10 5 3 2 1\
+An example to run sort ascending command is: sort-asc 10 5 3 2 1\
+An example to run get github repo description command is: repo-desc owner repository\
 
