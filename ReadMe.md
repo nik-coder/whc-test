@@ -1,4 +1,4 @@
-There are two codding styles in this project:
+There are two coding styles in this project:
 1. using PHP OOP (Object-Oriented Programming)
 2. using procedural programming
 
