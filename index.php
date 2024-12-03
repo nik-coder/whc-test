@@ -1,6 +1,6 @@
 <?php
 
-require_once 'commands-procedural.php';
+require_once 'commands.php';
 
 $commands = [
     'add' => new AddCommand(),

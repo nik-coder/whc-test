@@ -1,5 +1,5 @@
 <?php
-// commands.php
+
 class Command {
     public function execute($args) {}
 }
@@ -36,9 +36,23 @@ class RepoDescCommand extends Command {
         $owner = $args[0];
         $repo = $args[1];
         $url = "https://api.github.com/repos/$owner/$repo";
-        $response = json_decode(file_get_contents($url), true);
-        return $response['description'];
+
+        $opts = [
+            'http' => [
+                'method' => 'GET',
+                'header' => [
+                    'User-Agent: PHP Script',
+                    'Accept: application/json'
+                ]
+            ]
+        ];
+
+        $context = stream_context_create($opts);
+        $response = json_decode(file_get_contents($url, false, $context), true);
+
+        return $response['description'] ?? 'No description available';
     }
 }
+
 
 ?>

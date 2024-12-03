@@ -17,9 +17,24 @@ function executeRepoDescCommand($args) {
     $owner = $args[0];
     $repo = $args[1];
     $url = "https://api.github.com/repos/$owner/$repo";
-    $response = json_decode(file_get_contents($url), true);
-    return $response['description'];
+    
+    // Set up stream context with User-Agent header
+    $opts = [
+        'http' => [
+            'method' => 'GET',
+            'header' => [
+                'User-Agent: PHP Script',
+                'Accept: application/json'
+            ]
+        ]
+    ];
+    
+    $context = stream_context_create($opts);
+    $response = json_decode(file_get_contents($url, false, $context), true);
+    
+    return $response['description'] ?? 'No description available';
 }
+
 
 function executeSubtractCommand($args) {
     $result = (int) array_shift($args);
